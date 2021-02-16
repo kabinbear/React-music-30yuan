@@ -1,15 +1,19 @@
-import {GlobalStyle} from './styled'
-import {IconStyle} from './assets/iconfont/iconfont'
-import {renderRoutes} from 'react-router-config'
+import { GlobalStyle } from './style'
+import { IconStyle } from './assets/iconfont/iconfont'
+import { renderRoutes } from 'react-router-config'
 import routes from './routes/index'
-import {HashRouter} from 'react-router-dom'
+import { HashRouter } from 'react-router-dom'
+import store from './store/index'
+import Provider from 'react-redux'
 function App() {
   return (
-    <HashRouter>
+    <Provider store={store}>
+      <HashRouter>
         <GlobalStyle></GlobalStyle>
         <IconStyle></IconStyle>
-        { renderRoutes(routes) }
-    </HashRouter>
+        {renderRoutes(routes)}
+      </HashRouter>
+      </Provider>
   );
 }
 export default App;
